@@ -32,6 +32,10 @@ html[data-theme='dark']{
 body::-webkit-scrollbar {
     width: 10px;
 }
+html,
+body {
+    overflow-x: hidden;
+}
 body {
     font-family: 'Lato', sans-serif;
     background-color: var(--main-bg-color);
@@ -52,7 +56,6 @@ body::-webkit-scrollbar-thumb {
     padding-left: 15px;
     padding-right: 15px;
     margin: 0 auto;
-    overflow-x: hidden;
 }
 
 html {
@@ -100,7 +103,7 @@ ul {
 
 /* start Top bar  */
 .top-bar {
-    overflow: hidden;
+    overflow-x: hidden;
 }
 .top-bar .container {
     height: 80px;
@@ -198,6 +201,9 @@ ul {
 
 /* End Top bar  */
 /* Start Home */
+.home {
+    overflow-x: hidden;
+}
 .home .container {
     height: calc(100vh - 80px);
 }
@@ -211,7 +217,6 @@ ul {
 }
 .home .container .text h1 {
     font-size: 4rem;
-
     margin: 0;
     padding-bottom: 20px;
 }
@@ -311,6 +316,7 @@ ul {
     padding-top: 50px;
     padding-bottom: 100px;
     background-color: var(--second-bg-color);
+    overflow-x: hidden;
 }
 .about .info-skills {
     display: flex;
@@ -362,6 +368,14 @@ ul {
         flex-direction: column;
     }
 }
+@media screen and (max-width: 430px) {
+    .about .info-skills .skills {
+        transition-delay: 0s !important;
+    }
+    .about .info-skills .info {
+        transition-delay: 0s !important;
+    }
+}
 
 
 /* End About  */
@@ -369,6 +383,7 @@ ul {
 .work {
     padding-top: 50px;
     padding-bottom: 100px;
+    overflow-x: hidden;
 }
 
 .work .work-container {
@@ -442,6 +457,7 @@ ul {
 @media screen and (max-width: 579px) {
     .work .work-container .content {
         flex: 1 0 100% !important;
+        transition-delay: 0s !important;
     }
 }
 
@@ -509,6 +525,9 @@ footer .icon {
     color: var(--header-color);
     height: 45px;
 
+}
+footer:last-of-type {
+    overflow-x: hidden;
 }
 footer .c-r {
     text-align: center;
