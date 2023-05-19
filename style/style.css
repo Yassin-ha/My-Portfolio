@@ -8,6 +8,8 @@ html{
     --btn-color: #930740;
     --btn-hover-color: #C3073F;
     --main-transition: .3s;
+    --scrollbar-color: #ccc;
+    --scrollbar-track-color: #fff;
 }
 html[data-theme='dark']{
     --main-bg-color: #1A1A1D;
@@ -15,6 +17,8 @@ html[data-theme='dark']{
     --header-color: #C3073F;
     --text-color: #fff;
     --nav-color: #fff;
+    --scrollbar-color: #C3073F;
+    --scrollbar-track-color: #1A1A1D;
 }
 
 * {
@@ -25,18 +29,30 @@ html[data-theme='dark']{
     -webkit-box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+    width: 10px;
+}
 body {
     font-family: 'Lato', sans-serif;
     background-color: var(--main-bg-color);
     color: var(--text-color);
     transition: var(--main-transition);
-    overflow-x: hidden;
+    scrollbar-color: var(--scrollbar-color) var(--scrollbar-track-color);
+}
+body::-webkit-scrollbar-track {
+    background: var(--scrollbar-track-color);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-color);
+    border-radius: 0px;
+    border: 3px solid var(--scrollbar-track-color);
 }
 
 .container {
     padding-left: 15px;
     padding-right: 15px;
     margin: 0 auto;
+    overflow-x: hidden;
 }
 
 html {
@@ -84,7 +100,7 @@ ul {
 
 /* start Top bar  */
 .top-bar {
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 .top-bar .container {
     height: 80px;
@@ -130,7 +146,9 @@ ul {
     font-size: 13px;
     font-weight: 600;
     position: relative;
-    
+}
+.top-bar .menu ul li a {
+    color: inherit;
 }
 .top-bar .menu ul li:not(:last-child)::after {
     content: "";
@@ -173,6 +191,7 @@ ul {
         top: 60px;
         transform: translate(-50%, -50%);
         opacity: 0;
+        visibility: hidden;
         transition: var(--main-transition);
     }
 }
@@ -433,6 +452,9 @@ ul {
     padding-top: 50px;
     background-color: var(--second-bg-color);
 }
+.contact .container {
+    overflow-y: hidden;
+}
 .contact .icon {
     display: flex;
     justify-content: center;
@@ -464,6 +486,7 @@ footer .container {
     align-items: center;
     justify-content: space-between;
     text-align: center;
+    overflow-y: hidden;
 }
 footer .logo {
     font-family: 'Raleway', sans-serif;
@@ -484,6 +507,8 @@ footer .icon {
     animation: bounce 1s infinite;
     width: 15px;
     color: var(--header-color);
+    height: 45px;
+
 }
 footer .c-r {
     text-align: center;
