@@ -66,11 +66,26 @@ themeBtn.addEventListener("click", () => {
     if (document.documentElement.getAttribute('data-theme') === "dark") {
         themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
         document.documentElement.setAttribute('data-theme', "light");
+        localStorage.setItem('data-theme', "light")
     } else {
         document.documentElement.setAttribute('data-theme', "dark");
         themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+        localStorage.setItem('data-theme', "dark")
     }
 })
+// ****************************
+// storage Theme 
+window.onload = checkTheme();
+function checkTheme() {
+    const localStorageTheme = localStorage.getItem("data-theme");
+    if(localStorageTheme !== null && localStorageTheme === "light") {
+        document.documentElement.setAttribute("data-theme", localStorageTheme);
+        themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
+    } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    }
+}
 
 
 // ***************************
@@ -84,7 +99,7 @@ function reveal() {
     for (var i = 0; i < reveals.length; i++) {
         var windowHeight = window.innerHeight;
         var elementTop = reveals[i].getBoundingClientRect().top;
-        var elementVisible = 150;
+        var elementVisible = 100;
 
         if (elementTop < windowHeight - elementVisible) {
             reveals[i].classList.add("show");
